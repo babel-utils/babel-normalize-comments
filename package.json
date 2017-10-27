@@ -1,0 +1,34 @@
+{
+  "name": "babel-normalize-comments",
+  "version": "0.0.0",
+  "description": "Merge comments together into a normalized string",
+  "main": "index.js",
+  "repository": "https://github.com/babel-utils/babel-normalize-comments",
+  "author": "James Kyle <me@thejameskyle.com>",
+  "license": "MIT",
+  "keywords": [
+    "babel",
+    "babylon",
+    "comments",
+    "normalize",
+    "whitespace",
+    "jsdoc",
+    "jsdocs"
+  ],
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "devDependencies": {
+    "babylon": "^6.18.0",
+    "flow-bin": "^0.57.3",
+    "jest": "^21.2.1",
+    "jest-in-case": "^1.0.2",
+    "strip-indent": "^2.0.0"
+  },
+  "dependencies": {
+    "babel-flow-types": "^1.2.2"
+  }
+}
