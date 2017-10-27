@@ -3,7 +3,7 @@
 const cases = require('jest-in-case');
 const babylon = require('babylon');
 const stripIndent = require('strip-indent');
-const { normalizeComments } = require('./');
+const normalizeComments = require('./').normalizeComments;
 
 function parse(code) {
   return babylon.parse(code);
