@@ -79,6 +79,7 @@ cases('normalizeComments()', opts => {
     `
   },
   {
+    only: true,
     name: 'block-stars',
     code: `
       /* comment
@@ -108,6 +109,17 @@ cases('normalizeComments()', opts => {
     code: `
       /* comment
          comment */
+    `,
+    output: `
+      comment
+      comment
+    `,
+  },
+  {
+    name: 'double-start-multi-line-start-on-first-line',
+    code: `
+      /** comment
+      * comment */
     `,
     output: `
       comment

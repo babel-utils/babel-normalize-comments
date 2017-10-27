@@ -8,8 +8,8 @@ type Comment = CommentBlock | CommentLine;
 type Comments = Array<Comment>;
 */
 
-const EMPTY_LINE = /^[ \t]*\**[ \t]*$/;
-const SPACE_UNTIL_CONTENT = /^[ \t\*]*(?=\S)/;
+const EMPTY_LINE = /^[ \t]*\*?$/;
+const LINE_SPLITTER = /^([ \t]*)(\**)( *)(?=\S)(.*)/;
 
 function normalizeComment(comment /*: Comment */) /*: string */ {
   if (comment.type === 'CommentLine') {
@@ -41,25 +41,51 @@ function normalizeComment(comment /*: Comment */) /*: string */ {
   }
 
   let trimmed = lines.slice(start, end + 1);
-  let indents = [];
-  let startPos = comment.loc.start.column + 2;
+  let prefixes = [];
 
-  trimmed.forEach((line, index) => {
-    let offset = index === 0 && start === 0 ? startPos : 0;
-    let match = line.match(SPACE_UNTIL_CONTENT);
+  trimmed.forEach(line => {
+    let match = line.match(PREFIX_MATCHER);
     if (match) {
-      indents.push(offset + match[0].length);
+      prefixes.push()
     }
   });
 
-  let minIndent = Math.min.apply(Math, indents);
 
-  let normalized = trimmed.map((line, index) => {
-    let offset = index === 0 && start === 0 ? startPos : 0;
-    return line.slice(minIndent - offset).trimRight();
-  });
+  // let normalized = trimmed.map(line => {
+  //   return line.replace(STAR_LINE_PREFIX, '').trimRight();
+  // });
 
-  return normalized.join('\n');
+  // let trimmed =
+
+
+  //
+  // let indents = [];
+  // let startPos = comment.loc.start.column + 2;
+  //
+  // console.log(normalized);
+  // console.log(startPos);
+  //
+  // normalized.forEach((line, index) => {
+  //   let offset = 0;
+  //
+  //   if (index === 0 && start === 0) {
+  //     offset = startPos;
+  //   }
+  //
+  //   let match = line.match(SPACE_UNTIL_CONTENT);
+  //   if (match) {
+  //     indents.push(offset + match[0].length);
+  //   }
+  // });
+  //
+  // let minIndent = Math.min.apply(Math, indents);
+  //
+  // let dedented = normalized.map((line, index) => {
+  //   let offset = index === 0 && start === 0 ? startPos : 0;
+  //   return line.slice(minIndent - offset);
+  // });
+  //
+  // return dedented.join('\n');
 }
 
 function normalizeComments(comments /*: Comments */) /*: string */ {
