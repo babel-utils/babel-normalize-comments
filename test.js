@@ -114,4 +114,15 @@ cases('normalizeComments()', opts => {
       comment
     `,
   },
+  {
+    name: 'block-alignment-next-line',
+    code: `
+    /** Writing on one line
+    a second line */
+    `,
+    output: `
+      Writing on one line
+      a second line
+    `,
+  },
 ]);
