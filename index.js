@@ -43,7 +43,6 @@ function normalizeComment(comment /*: Comment */) /*: string */ {
   let trimmed = lines.slice(start, end + 1);
   let indents = [];
   let startPos = comment.loc.start.column + 2;
-
   trimmed.forEach((line, index) => {
     let offset = index === 0 && start === 0 ? startPos : 0;
     let match = line.match(SPACE_UNTIL_CONTENT);
@@ -56,7 +55,7 @@ function normalizeComment(comment /*: Comment */) /*: string */ {
 
   let normalized = trimmed.map((line, index) => {
     let offset = index === 0 && start === 0 ? startPos : 0;
-    return line.slice(minIndent - offset).trimRight();
+    return line.slice(Math.abs(minIndent - offset)).trimRight();
   });
 
   return normalized.join('\n');
