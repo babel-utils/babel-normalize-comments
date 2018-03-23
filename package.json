@@ -15,20 +15,18 @@
     "jsdoc",
     "jsdocs"
   ],
-  "files": [
-    "index.js"
-  ],
+  "files": ["index.js"],
   "scripts": {
     "test": "jest --coverage"
   },
   "devDependencies": {
     "babylon": "^6.18.0",
-    "flow-bin": "^0.57.3",
+    "flow-bin": "^0.63.1",
     "jest": "^21.2.1",
     "jest-in-case": "^1.0.2",
     "strip-indent": "^2.0.0"
   },
   "dependencies": {
-    "babel-flow-types": "^1.2.2"
+    "babel-flow-types": "^1.2.3"
   }
 }
