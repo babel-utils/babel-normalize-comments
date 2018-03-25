@@ -1,6 +1,6 @@
 {
   "name": "babel-normalize-comments",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Merge comments together into a normalized string",
   "main": "index.js",
   "repository": "https://github.com/babel-utils/babel-normalize-comments",
@@ -15,7 +15,9 @@
     "jsdoc",
     "jsdocs"
   ],
-  "files": ["index.js"],
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "test": "jest --coverage"
   },
