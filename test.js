@@ -95,11 +95,13 @@ cases('normalizeComments()', opts => {
     code: `
       /**
        * comment
+       * 
        * comment
        */
     `,
     output: `
       comment
+
       comment
     `,
   },

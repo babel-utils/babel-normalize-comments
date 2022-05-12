@@ -46,7 +46,7 @@ function normalizeComment(comment /*: Comment */) /*: string */ {
   trimmed.forEach((line, index) => {
     let offset = index === 0 && start === 0 ? startPos : 0;
     let match = line.match(SPACE_UNTIL_CONTENT);
-    if (match) {
+    if (match && !EMPTY_LINE.test(line)) {
       indents.push(offset + match[0].length);
     }
   });
